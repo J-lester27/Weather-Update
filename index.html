@@ -9,129 +9,121 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-  <!-- ILAGAY ITO SA index.html, sa loob ng <head> at BAGO ang </head> -->
 
-<style>
-/* ===== PAGE LOAD ANIMATION ===== */
-.weather-app{
-  animation: fadeUp 1s ease;
-}
+  <style>
+    .weather-app {
+      animation: fadeUp 1s ease;
+    }
 
-.search-panel{
-  animation: fadeDown 0.8s ease;
-}
+    .search-panel {
+      animation: fadeDown 0.8s ease;
+    }
 
-.current-weather{
-  animation: fadeLeft 1s ease 0.2s both;
-}
+    .current-weather {
+      animation: fadeLeft 1s ease 0.2s both;
+    }
 
-.forecast-panel{
-  animation: fadeRight 1s ease 0.4s both;
-}
+    .forecast-panel {
+      animation: fadeRight 1s ease 0.4s both;
+    }
 
-/* ===== FLOATING WEATHER ICON ===== */
-.weather-icon{
-  animation: floatIcon 4s ease-in-out infinite;
-}
+    .weather-icon {
+      animation: floatIcon 4s ease-in-out infinite;
+    }
 
-/* ===== PULSING TEMPERATURE ===== */
-.temperature{
-  animation: pulseTemp 3s ease-in-out infinite;
-}
+    .temperature {
+      animation: pulseTemp 3s ease-in-out infinite;
+    }
 
-/* ===== METRIC CARD HOVER ===== */
-.metric-card{
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
+    .metric-card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
 
-.metric-card:hover{
-  transform: translateY(-8px) scale(1.03);
-  box-shadow: 0 20px 40px rgba(0,0,0,0.25);
-}
+    .metric-card:hover {
+      transform: translateY(-8px) scale(1.03);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+    }
 
-/* ===== SEARCH BUTTON HOVER ===== */
-.search-row button{
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
+    .search-row button {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
 
-.search-row button:hover{
-  transform: scale(1.05);
-  box-shadow: 0 10px 30px rgba(94,224,194,0.35);
-}
+    .search-row button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 30px rgba(94, 224, 194, 0.35);
+    }
 
-/* ===== FORECAST CARD HOVER ===== */
-.forecast-item{
-  transition: transform 0.3s ease, background 0.3s ease;
-}
+    .forecast-item {
+      transition: transform 0.3s ease, background 0.3s ease;
+    }
 
-.forecast-item:hover{
-  transform: translateX(6px);
-  background: rgba(255,255,255,0.12);
-}
+    .forecast-item:hover {
+      transform: translateX(6px);
+      background: rgba(255, 255, 255, 0.12);
+    }
 
-/* ===== KEYFRAMES ===== */
-@keyframes fadeUp{
-  from{
-    opacity:0;
-    transform:translateY(40px);
-  }
-  to{
-    opacity:1;
-    transform:translateY(0);
-  }
-}
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
 
-@keyframes fadeDown{
-  from{
-    opacity:0;
-    transform:translateY(-40px);
-  }
-  to{
-    opacity:1;
-    transform:translateY(0);
-  }
-}
+    @keyframes fadeDown {
+      from {
+        opacity: 0;
+        transform: translateY(-40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
 
-@keyframes fadeLeft{
-  from{
-    opacity:0;
-    transform:translateX(-40px);
-  }
-  to{
-    opacity:1;
-    transform:translateX(0);
-  }
-}
+    @keyframes fadeLeft {
+      from {
+        opacity: 0;
+        transform: translateX(-40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
 
-@keyframes fadeRight{
-  from{
-    opacity:0;
-    transform:translateX(40px);
-  }
-  to{
-    opacity:1;
-    transform:translateX(0);
-  }
-}
+    @keyframes fadeRight {
+      from {
+        opacity: 0;
+        transform: translateX(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
 
-@keyframes floatIcon{
-  0%,100%{
-    transform:translateY(0);
-  }
-  50%{
-    transform:translateY(-10px);
-  }
-}
+    @keyframes floatIcon {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+    }
 
-@keyframes pulseTemp{
-  0%,100%{
-    transform:scale(1);
-  }
-  50%{
-    transform:scale(1.03);
-  }
-}
-</style>
+    @keyframes pulseTemp {
+      0%, 100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.03);
+      }
+    }
+  </style>
 </head>
 <body>
   <main class="weather-app">
@@ -144,7 +136,13 @@
       <form id="weather-form" class="search-form">
         <label for="city-input">Search city</label>
         <div class="search-row">
-          <input id="city-input" type="search" placeholder="Philippines, Tokyo, New York..." autocomplete="off" required>
+          <input
+            id="city-input"
+            type="search"
+            placeholder="Philippines, Tokyo, New York..."
+            autocomplete="off"
+            required
+          >
           <button type="submit">Search</button>
         </div>
       </form>
@@ -163,7 +161,9 @@
         <p id="temperature" class="temperature">--</p>
         <div>
           <p id="condition" class="condition">Checking the sky</p>
-          <p id="summary" class="muted">Wind, humidity, and pressure will appear here.</p>
+          <p id="summary" class="muted">
+            Wind, humidity, and pressure will appear here.
+          </p>
         </div>
       </div>
 
@@ -177,6 +177,7 @@
             <span></span>
           </div>
         </article>
+
         <article class="metric-card humidity-card">
           <div>
             <span>Humidity</span>
@@ -186,6 +187,7 @@
             <i></i><i></i><i></i><i></i><i></i><i></i>
           </div>
         </article>
+
         <article class="metric-card pressure-card">
           <div>
             <span>Pressure</span>
@@ -195,6 +197,7 @@
             <span></span>
           </div>
         </article>
+
         <article class="metric-card feels-card">
           <div>
             <span>Feels Like</span>
@@ -204,10 +207,13 @@
         </article>
       </div>
     </section>
+
     <section class="forecast-panel">
       <div class="section-header">
         <h2>7-Day Forecast</h2>
-        <p id="forecast-note" class="muted">Daily outlook updates after search.</p>
+        <p id="forecast-note" class="muted">
+          Daily outlook updates after search.
+        </p>
       </div>
       <div id="forecast-list" class="forecast-list"></div>
     </section>
