@@ -7,17 +7,17 @@ const cityInput = document.querySelector("#city-input");
 const statusMessage = document.querySelector("#status-message");
 const forecastList = document.querySelector("#forecast-list");
 
-let activeCity = "Cainta";
+let activeCity = "Manila";
 let autoUpdateTimer;
 let activeTimezone = "Asia/Manila";
 
 const savedPlaces = {
-  cainta: {
-    name: "Cainta",
-    admin1: "Calabarzon",
+  manila: {
+    name: "Manila",
+    admin1: "Metro Manila",
     country: "Philippines",
-    latitude: 14.5828,
-    longitude: 121.1195
+    latitude: 14.5995,
+    longitude: 120.9842
   }
 };
 
