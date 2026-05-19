@@ -8,8 +8,6 @@ const statusMessage = document.querySelector("#status-message");
 const forecastList = document.querySelector("#forecast-list");
 
 let activeCity = "Manila";
-let autoUpdateTimer;
-let activeTimezone = "Asia/Manila";
 
 const savedPlaces = {
   manila: {
@@ -20,7 +18,6 @@ const savedPlaces = {
     longitude: 120.9842
   }
 };
-
 const elements = {
   location: document.querySelector("#location-name"),
   updated: document.querySelector("#updated-time"),
