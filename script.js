@@ -74,7 +74,7 @@ async function getWeatherApiForecast(city) {
   endpoint.search = new URLSearchParams({
     key: WEATHER_API_KEY,
     q: city,
-    days: "7",
+    days: "3", // INAYOS: Binabaan sa 3 dahil limitado sa 3 days ang free tier plan ng WeatherAPI
     aqi: "no",
     alerts: "no"
   });
@@ -166,6 +166,7 @@ async function fetchWithTimeout(url) {
   }
 }
 
+// INAYOS: Ginawang uniform ang pag-render ng main icon gamit ang iyong getConditionIcon function
 function updateWeatherApiCurrent(weather) {
   const location = weather.location;
   const current = weather.current;
@@ -174,7 +175,9 @@ function updateWeatherApiCurrent(weather) {
 
   elements.location.textContent = placeLabel;
   updateLiveClock();
-  elements.icon.innerHTML = `<img src="https:${current.condition.icon}" alt="">`;
+  
+  // Mas maganda ang hitsura kung parehong gagamit ng iyong CSS art styles
+  elements.icon.innerHTML = getConditionIcon(current.condition.text);
   elements.temperature.textContent = `${Math.round(current.temp_c)}\u00B0`;
   elements.condition.textContent = current.condition.text;
   elements.summary.textContent = `Feels like ${Math.round(current.feelslike_c)}\u00B0C with ${current.humidity}% humidity.`;
@@ -319,7 +322,9 @@ function getDayNightIcon(type) {
   return `<span class="weather-art ${variant}"><i></i><b></b></span>`;
 }
 
+// INAYOS: Binigyan ng guard block `if (!elements.updated) return;` para hindi mag-crash ang interval clock kung sakaling naglo-load pa lang ang DOM
 function updateLiveClock() {
+  if (!elements.updated) return;
   const now = new Date();
 
   elements.updated.textContent = `Local time ${now.toLocaleString([], {
@@ -361,5 +366,6 @@ function hasApiKey() {
     WEATHER_API_KEY !== "your_real_api_key_here";
 }
 
+// Bootstrapping initialization
 loadWeather(activeCity);
 setInterval(updateLiveClock, 1000);
